@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOLE SOLUTION — Partnership Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow+Condensed:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#C8D8EA; --bg-soft:#D6E4F0; --bg-deep:#E4EDF6; --bg-mid:#B8CCE0; --bg-dark:#9FBAD4;
+    --text:#1E2E40; --text-mid:#3D5166; --text-light:#6A849E; --divider:#A8BECC;
+    --navy-deep:#162333; --navy-surface:#243A52;
+    --gold:#D89A5B; --gold-light:#E3B07A; --gold-deep:#C2834A;
+    --white:#F4F8FC; --white-card:#EEF4FA;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;overflow-x:hidden}
+
+  .progress-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--navy-surface),var(--gold));width:0%;transition:width .1s linear;z-index:200}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 52px;background:rgba(184,204,224,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--divider)}
+  .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:7px;color:var(--navy-deep)}
+  .nav-pages{display:flex;gap:8px;align-items:center}
+  .nav-dot{width:7px;height:7px;border-radius:50%;background:var(--bg-dark);cursor:pointer;transition:all .3s;position:relative}
+  .nav-dot::before{content:'';position:absolute;top:-12px;bottom:-12px;left:-12px;right:-12px}
+  .nav-dot.active{background:var(--gold);transform:scale(1.3)}
+  .nav-label{font-family:'Space Mono',monospace;font-size:9px;color:var(--text-light);letter-spacing:3px;text-transform:uppercase}
+
+  .grid-overlay{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(30,46,64,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(30,46,64,.07) 1px,transparent 1px);background-size:64px 64px;opacity:.5}
+
+  .page{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:visible;opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
+  .page.visible{opacity:1;transform:translateY(0)}
+
+  .page-content{padding:120px 80px;width:100%;max-width:1300px;margin:0 auto;display:flex;flex-direction:column;justify-content:center;flex:1;position:relative;z-index:10}
+
+  .animate-in{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+  .animate-in.visible{opacity:1;transform:translateY(0)}
+  .d1{transition-delay:.10s}.d2{transition-delay:.20s}.d3{transition-delay:.30s}
+  .d4{transition-delay:.40s}.d5{transition-delay:.50s}.d6{transition-delay:.60s}
+
+  .section-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+  .section-label::after{content:'';width:48px;height:1px;background:var(--gold);opacity:.5}
+
+  .big-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6.5vw,88px);line-height:.95;letter-spacing:.5px;color:var(--navy-deep);margin-bottom:40px}
+
+  .scroll-hint{position:fixed;bottom:32px;right:52px;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:50;transition:opacity .5s}
+  .scroll-hint.hidden{opacity:0;pointer-events:none}
+  .scroll-line{width:1px;height:44px;background:linear-gradient(180deg,var(--gold),transparent);animation:sa 1.8s ease-in-out infinite}
+  @keyframes sa{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(0);transform-origin:bottom}}
+  .scroll-label{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--text-light)}
+
+  /* PAGE 1: COVER */
+  #p1{background:var(--bg);padding-top:80px}
+  .cover-inner{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+  .cover-left{display:flex;flex-direction:column;justify-content:center;padding:80px 64px 80px 80px;border-right:1px solid var(--divider);background:var(--bg-soft)}
+  .cover-tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:36px;display:flex;align-items:center;gap:14px}
+  .cover-tag::before{content:'';width:36px;height:1px;background:var(--gold)}
+  .cover-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(58px,7.5vw,106px);line-height:.92;letter-spacing:.5px;color:var(--navy-deep);margin-bottom:10px}
+  .cover-headline span{color:var(--navy-surface);display:block}
+  .cover-sub{font-family:'Barlow',sans-serif;font-size:16px;font-weight:300;color:var(--text-mid);margin-top:28px;margin-bottom:52px;line-height:1.85;max-width:420px}
+  .cover-descriptor{font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.9;max-width:380px;border-left:2px solid var(--gold);padding-left:20px}
+  .cover-right{background:var(--bg-mid);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:80px 60px;position:relative;overflow:hidden}
+  .cover-watermark{position:absolute;bottom:32px;left:0;right:0;font-family:'Bebas Neue',sans-serif;font-size:200px;letter-spacing:-6px;color:var(--bg-dark);text-align:center;line-height:1;user-select:none;opacity:.45}
+  .cover-pillars{display:flex;flex-direction:column;gap:1px;background:var(--divider);width:100%;position:relative;z-index:2}
+  .cover-pillar{display:flex;align-items:center;gap:20px;padding:24px 28px;background:var(--bg-soft);transition:background .3s}
+  .cover-pillar:hover{background:var(--bg-deep)}
+  .pillar-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--gold);line-height:1;min-width:36px}
+  .pillar-text strong{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text);display:block;margin-bottom:3px}
+  .pillar-text span{font-size:13px;font-weight:300;color:var(--text-mid)}
+
+  /* PAGE 2: PROBLEM */
+  #p2{background:var(--bg-soft)}
+  .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--divider);margin-top:56px}
+  .problem-card{background:var(--bg-soft);padding:40px 32px;position:relative;transition:background .3s;cursor:default}
+  .problem-card:hover{background:var(--white-card)}
+  .problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);opacity:0;transition:opacity .3s}
+  .problem-card:hover::before{opacity:1}
+  .p-icon{font-size:22px;margin-bottom:18px;opacity:.55}
+  .p-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy-deep);margin-bottom:10px;line-height:1.2}
+  .p-desc{font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.8}
+  .problem-transition{margin-top:56px;padding:36px 48px;background:var(--bg-mid);border:1px solid var(--divider);display:flex;align-items:center;gap:32px}
+  .pt-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+  .pt-line{flex:1;height:1px;background:var(--gold);opacity:.3}
+  .pt-text{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:600;letter-spacing:1px;color:var(--navy-deep);white-space:nowrap}
+
+  /* PAGE 3: WHO WE ARE */
+  #p3{background:var(--bg)}
+  .who-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:48px}
+  .who-left-stmt{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,72px);line-height:1.0;letter-spacing:.5px;color:var(--navy-deep)}
+  .who-left-stmt em{font-style:normal;color:var(--navy-surface);display:block}
+  .who-divider{width:52px;height:2px;background:var(--gold);margin:32px 0}
+  .who-body{font-size:15px;font-weight:300;line-height:1.95;color:var(--text-mid)}
+  .who-note{margin-top:32px;padding:22px 24px;background:var(--white-card);border:1px solid var(--divider);font-size:14px;font-weight:400;color:var(--text);line-height:1.7;font-style:italic}
+  .who-right{display:flex;flex-direction:column;gap:1px;background:var(--divider)}
+  .who-item{display:flex;align-items:flex-start;gap:20px;padding:28px 32px;background:var(--bg-soft);transition:background .3s;cursor:default}
+  .who-item:hover{background:var(--white-card)}
+  .who-item:hover .who-num{color:var(--gold)}
+  .who-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--bg-dark);line-height:1;min-width:44px;transition:color .3s}
+  .who-item-text strong{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text);display:block;margin-bottom:5px}
+  .who-item-text span{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.7}
+
+  /* PAGE 4: SERVICES */
+  #p4{background:var(--bg-soft)}
+  .services-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--divider);margin-top:64px}
+  .svc-block{padding:52px 44px;background:var(--bg-soft);position:relative;transition:background .4s;cursor:default;overflow:hidden}
+  .svc-block:hover{background:var(--white-card)}
+  .svc-block::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transition:transform .4s;transform-origin:bottom}
+  .svc-block:hover::before{transform:scaleY(1)}
+  .svc-num{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--gold);line-height:1;margin-bottom:-12px;opacity:.4}
+  .svc-title{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy-deep);margin-bottom:14px}
+  .svc-desc{font-size:14px;font-weight:300;line-height:1.85;color:var(--text-mid);margin-bottom:22px}
+  .svc-tag{display:inline-block;padding:4px 12px;border:1px solid var(--divider);font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);margin-right:6px;margin-bottom:5px;background:var(--bg-mid)}
+  .svc-block-wide{grid-column:1/-1;padding:40px 44px;background:var(--bg-mid);border-top:1px solid var(--divider);display:flex;align-items:center;gap:48px;transition:background .4s;cursor:default}
+  .svc-block-wide:hover{background:var(--bg-dark)}
+  .svc-wide-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);min-width:120px}
+  .svc-wide-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy-deep);min-width:220px}
+  .svc-wide-desc{font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.75;flex:1}
+
+  /* PAGE 5: STANDARDS */
+  #p5{background:var(--bg)}
+  .std-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:48px;align-items:start}
+  .std-left{display:flex;flex-direction:column;gap:1px;background:var(--divider)}
+  .std-item{display:flex;gap:20px;align-items:flex-start;padding:28px 32px;background:var(--bg-soft);transition:background .3s}
+  .std-item:hover{background:var(--white-card)}
+  .std-icon{font-size:20px;min-width:28px;margin-top:2px;opacity:.65}
+  .std-item-title{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy-deep);margin-bottom:5px}
+  .std-item-desc{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.75}
+  .warranty-block{background:var(--navy-surface);border:1px solid rgba(255,255,255,.06);padding:40px}
+  .wb-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  .wb-headline{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:.5px;color:#E8F1FA;line-height:.95;margin-bottom:24px}
+  .wb-headline span{color:var(--gold);display:block}
+  .wb-body{font-size:14px;font-weight:300;color:rgba(196,214,230,.8);line-height:1.85;margin-bottom:28px}
+  .wb-steps{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.06)}
+  .wb-step{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;background:rgba(255,255,255,.03);transition:background .3s}
+  .wb-step:hover{background:rgba(255,255,255,.07)}
+  .wb-step-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);line-height:1;min-width:32px;opacity:.7}
+  .wb-step-text strong{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#D8E8F2;display:block}
+  .wb-step-text span{font-size:12px;font-weight:300;color:rgba(196,214,230,.7)}
+
+  /* PAGE 6: PARTNERSHIP FLOW */
+  #p6{background:var(--bg-soft)}
+  .flow-intro{max-width:560px;margin-bottom:72px}
+  .flow-diagram{display:flex;align-items:stretch;gap:0;background:var(--divider);flex-wrap:nowrap}
+  .flow-step{flex:1;display:flex;flex-direction:column;background:var(--bg-soft);padding:32px 24px;position:relative;transition:background .3s;cursor:default;border-right:1px solid var(--divider)}
+  .flow-step:last-child{border-right:none}
+  .flow-step:hover{background:var(--white-card)}
+  .flow-step:hover .fs-num{color:var(--gold)}
+  .flow-step::after{content:'→';position:absolute;right:-13px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--gold);z-index:2;background:var(--bg-soft);padding:2px 4px;opacity:.7}
+  .flow-step:last-child::after{display:none}
+  .fs-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--bg-dark);line-height:1;margin-bottom:16px;transition:color .3s}
+  .fs-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy-deep);margin-bottom:10px}
+  .fs-desc{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.75;flex:1}
+  .fs-badge{margin-top:16px;display:inline-block;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border-top:1px solid var(--gold);padding-top:10px;opacity:.8}
+  .flow-review{margin-top:1px;padding:32px 40px;background:var(--bg-mid);border:1px solid var(--divider);display:flex;align-items:center;gap:40px}
+  .fr-num{font-family:'Bebas Neue',sans-serif;font-size:80px;color:var(--gold);line-height:1;flex-shrink:0;opacity:.5}
+  .fr-text strong{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy-deep);display:block;margin-bottom:6px}
+  .fr-text p{font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.8}
+
+  /* PAGE 7: WHAT PARTNERS GET */
+  #p7{background:var(--bg)}
+  .value-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:48px}
+  .value-left .big-headline{margin-bottom:20px}
+  .value-left .sub{font-size:15px;font-weight:300;color:var(--text-mid);line-height:1.95;margin-bottom:36px}
+  .value-quote{padding:28px 32px;background:var(--bg-mid);border-left:2px solid var(--gold);font-size:17px;font-weight:400;font-style:italic;color:var(--navy-deep);line-height:1.7}
+  .value-quote cite{display:block;margin-top:14px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-style:normal}
+  .value-right{display:flex;flex-direction:column;gap:1px;background:var(--divider)}
+  .value-item{display:flex;gap:20px;align-items:flex-start;padding:28px 32px;background:var(--bg-soft);transition:background .3s;cursor:default}
+  .value-item:hover{background:var(--white-card)}
+  .vi-indicator{width:2px;min-height:52px;background:linear-gradient(180deg,var(--gold),var(--gold-light));flex-shrink:0;margin-top:4px;opacity:.7}
+  .vi-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy-deep);margin-bottom:5px}
+  .vi-desc{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.75}
+
+  /* PAGE 8: OPERATIONAL CAPABILITY */
+  #p8{background:var(--bg-soft)}
+  .capacity-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:48px}
+  .capacity-left .body{font-size:15px;font-weight:300;line-height:1.95;color:var(--text-mid)}
+  .capacity-note{margin-top:32px;padding:22px 24px;background:var(--bg-mid);border-left:2px solid var(--gold);font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.8}
+  .cap-stack{display:flex;flex-direction:column;gap:1px;background:var(--divider)}
+  .cap-row{display:grid;grid-template-columns:160px 1fr;background:var(--white-card);overflow:hidden;transition:background .3s}
+  .cap-row:hover{background:var(--bg-deep)}
+  .cap-num-block{background:var(--bg-mid);display:flex;align-items:center;justify-content:center;padding:32px 20px;border-right:1px solid var(--divider);flex-direction:column}
+  .cap-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--gold);line-height:1;text-align:center}
+  .cap-unit{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;color:var(--text-light);text-transform:uppercase;margin-top:4px;text-align:center}
+  .cap-info{padding:28px 32px}
+  .cap-info strong{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy-deep);display:block;margin-bottom:6px}
+  .cap-info p{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.7}
+  .cap-footer{margin-top:24px;padding:20px 24px;background:var(--bg-mid);border:1px solid var(--divider);font-size:12px;font-weight:300;color:var(--text-light);line-height:1.7;font-style:italic}
+
+  /* PAGE 9: CONTACT */
+  #p9{background:var(--navy-surface);min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:120px 80px}
+  #p9 .grid-overlay{background-image:linear-gradient(rgba(200,216,234,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(200,216,234,.05) 1px,transparent 1px)}
+  .contact-inner{max-width:820px;width:100%}
+  .contact-overline{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:36px}
+  .contact-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,7.5vw,104px);line-height:.9;letter-spacing:.5px;color:#E8F1FA;margin-bottom:28px}
+  .contact-headline span{color:var(--gold);display:block}
+  .contact-sub{font-size:16px;font-weight:300;color:rgba(196,214,230,.75);line-height:1.9;max-width:520px;margin:0 auto 56px}
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);max-width:680px;margin:0 auto 48px}
+  .contact-item{padding:32px 24px;background:rgba(255,255,255,.04);transition:background .3s}
+  .contact-item:hover{background:rgba(255,255,255,.08)}
+  .ci-type{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;opacity:.8}
+  .ci-val{font-size:15px;font-weight:500;color:#D8E8F2}
+  .contact-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:64px}
+  .btn-p{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;background:var(--gold);color:var(--navy-deep);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border:none;transition:background .3s}
+  .btn-p:hover{background:var(--gold-deep)}
+  .btn-s{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;background:transparent;color:rgba(196,214,230,.8);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;letter-spacing:3px;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);cursor:pointer;transition:all .3s}
+  .btn-s:hover{border-color:var(--gold);color:var(--gold)}
+  .contact-closing{padding-top:48px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;font-weight:300;font-style:italic;color:rgba(196,214,230,.5);line-height:1.9;max-width:480px;margin:0 auto}
+
+  /* BACK COVER */
+  #p10{background:var(--bg-soft);padding:80px;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between}
+  .bc-top{display:flex;justify-content:space-between;align-items:flex-start}
+  .bc-brand{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:8px;color:var(--navy-deep)}
+  .bc-tagline{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:300;letter-spacing:4px;text-transform:uppercase;color:var(--text-light);margin-top:6px}
+  .bc-mid{text-align:center;padding:80px 0}
+  .bc-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,12vw,180px);letter-spacing:-4px;line-height:.9;color:var(--bg-dark);user-select:none}
+  .bc-stmt{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:300;letter-spacing:6px;text-transform:uppercase;color:var(--text-light);margin-top:18px}
+  .bc-bottom{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--divider);padding-top:32px}
+  .bc-info{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);line-height:2.2}
+  .bc-badge{display:flex;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text-light)}
+  .bc-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+  @media(max-width:900px){
+    nav{padding:16px 20px}
+    .nav-label{display:none}
+    .nav-logo{font-size:16px;letter-spacing:4px}
+    
+    .page{overflow:visible}
+    .page-content{padding:80px 20px 40px}
+    
+    /* Cover Page */
+    .cover-inner{grid-template-columns:1fr}
+    .cover-left{padding:100px 20px 40px}
+    .cover-right{padding:40px 20px 60px;display:flex}
+    .cover-watermark{font-size:120px;bottom:16px}
+    .cover-pillar{padding:20px 20px}
+    
+    /* Problem Page */
+    .problem-grid{grid-template-columns:1fr}
+    .problem-card{padding:28px 20px}
+    .problem-transition{flex-direction:column;text-align:center;gap:16px;padding:24px 20px}
+    .pt-text{white-space:normal;font-size:18px}
+    .pt-line{display:none}
+    
+    /* Who We Are Page */
+    .who-layout{flex-direction:column;gap:40px;display:flex}
+    .who-item{padding:20px 20px}
+    .who-note{margin-top:24px;padding:16px 20px}
+    
+    /* Services Page */
+    .services-grid{grid-template-columns:1fr}
+    .svc-block{padding:32px 24px}
+    .svc-block-wide{flex-direction:column;gap:16px;padding:28px 24px}
+    .svc-wide-label{min-width:auto}
+    .svc-wide-title{min-width:auto;font-size:20px}
+    
+    /* Standards & Warranty */
+    .std-layout{flex-direction:column;gap:40px;display:flex}
+    .std-item{padding:20px 20px}
+    .warranty-block{padding:24px}
+    .wb-headline{font-size:36px}
+    .wb-step{padding:14px 16px}
+    
+    /* Partnership Flow */
+    .flow-diagram{flex-direction:column;display:flex;gap:1px}
+    .flow-step{padding:28px 20px;border-right:none;border-bottom:1px solid var(--divider)}
+    .flow-step:last-child{border-bottom:none}
+    .flow-step::after{display:none}
+    .flow-review{flex-direction:column;text-align:center;gap:16px;padding:24px}
+    .fr-num{font-size:60px}
+    
+    /* What Partners Get */
+    .value-layout{flex-direction:column;gap:40px;display:flex}
+    .value-item{padding:20px 20px}
+    .value-quote{padding:20px 20px}
+    
+    /* Operational Capability */
+    .capacity-layout{flex-direction:column;gap:40px;display:flex}
+    .cap-row{grid-template-columns:1fr}
+    .cap-num-block{border-right:none;border-bottom:1px solid var(--divider);padding:20px 24px;flex-direction:row;gap:12px;justify-content:flex-start}
+    .cap-unit{margin-top:0}
+    .cap-info{padding:20px 24px}
+    
+    /* Contact Page */
+    #p9{padding:80px 20px}
+    .contact-grid{grid-template-columns:1fr}
+    .contact-item{padding:20px 20px}
+    
+    /* Back Cover */
+    #p10{padding:60px 20px}
+    .bc-top{flex-direction:column;gap:24px;align-items:flex-start}
+    .bc-top div{text-align:left !important}
+    .bc-mid{display:none}
+    .bc-bottom{flex-direction:column;align-items:flex-start;gap:20px}
+    
+    .scroll-hint{display:none}
+    .big-headline{font-size:44px}
+  }
+  
+  @media(max-width:480px){
+    .contact-buttons{flex-direction:column;width:100%}
+    .btn-p,.btn-s{width:100%;justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+<nav>
+  <div class="nav-logo">SOLE SOLUTION</div>
+  <div class="nav-pages" id="navDots"></div>
+  <div class="nav-label">B2B Partnership Proposal</div>
+</nav>
+<div class="scroll-hint" id="scrollHint">
+  <div class="scroll-line"></div>
+  <div class="scroll-label">Scroll</div>
+</div>
+
+<!-- PAGE 1: COVER -->
+<section class="page" id="p1" data-page="1">
+  <div class="grid-overlay"></div>
+  <div class="cover-inner">
+    <div class="cover-left">
+      <div class="cover-tag animate-in">B2B Partnership Proposal · 2025</div>
+      <div class="cover-headline animate-in d1">
+        YOUR REPAIR PARTNER<br>BEHIND<br><span>THE BRAND.</span>
+      </div>
+      <div class="cover-sub animate-in d2">
+        Factory-standard reglue service for shoe laundry businesses that value reputation.
+      </div>
+      <div class="cover-descriptor animate-in d3">
+        Kami hadir di balik bisnis Anda — agar pelanggan Anda selalu melihat standar yang Anda janjikan, setiap saat.
+      </div>
+    </div>
+    <div class="cover-right">
+      <div class="grid-overlay" style="opacity:.6"></div>
+      <div class="cover-watermark">SS</div>
+      <div class="cover-pillars animate-in d2">
+        <div class="cover-pillar">
+          <div class="pillar-num">01</div>
+          <div class="pillar-text">
+            <strong>Reglue Specialist</strong>
+            <span>Hasil lebih kuat, lebih tahan lama — komplain berkurang</span>
+          </div>
+        </div>
+        <div class="cover-pillar">
+          <div class="pillar-num">02</div>
+          <div class="pillar-text">
+            <strong>B2B Only Workshop</strong>
+            <span>Seluruh kapasitas kami didedikasikan untuk partner bisnis</span>
+          </div>
+        </div>
+        <div class="cover-pillar">
+          <div class="pillar-num">03</div>
+          <div class="pillar-text">
+            <strong>No Additional Investment</strong>
+            <span>Tambah layanan baru tanpa alat, material, atau staf tambahan</span>
+          </div>
+        </div>
+        <div class="cover-pillar">
+          <div class="pillar-num">04</div>
+          <div class="pillar-text">
+            <strong>Consistent Quality</strong>
+            <span>Kualitas yang bisa diprediksi — meskipun volume meningkat</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2: THE PROBLEM -->
+<section class="page" id="p2" data-page="2">
+  <div class="grid-overlay"></div>
+  <div class="page-content">
+    <div class="section-label animate-in">The Problem</div>
+    <div class="big-headline animate-in d1">
+      PELANGGAN ANDA<br>BUTUH REGLUE.<br><span style="color:var(--navy-surface)">BISNIS ANDA BELUM SIAP.</span>
+    </div>
+    <div class="problem-grid animate-in d2">
+      <div class="problem-card">
+        <div class="p-icon">📉</div>
+        <div class="p-title">Komplain yang Tidak Bisa Dihindari</div>
+        <div class="p-desc">Reglue yang dikerjakan tanpa keahlian dan material yang tepat hampir pasti menimbulkan masalah. Satu komplain serius bisa merusak kepercayaan yang dibangun bertahun-tahun.</div>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">🔧</div>
+        <div class="p-title">Tidak Ada Spesialis yang Bisa Dipercaya</div>
+        <div class="p-desc">Menemukan sub-kontraktor repair yang konsisten, profesional, dan bisa diandalkan sangat sulit. Kebanyakan hasilnya tidak bisa diprediksi — terlalu berisiko untuk nama bisnis Anda.</div>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">💸</div>
+        <div class="p-title">Layanan Ditolak = Pendapatan Hilang</div>
+        <div class="p-desc">Setiap kali Anda menolak permintaan reglue karena tidak memiliki kapasitas, Anda kehilangan pendapatan — dan pelanggan Anda mencari tempat lain.</div>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">🔁</div>
+        <div class="p-title">Hasil yang Tidak Konsisten</div>
+        <div class="p-desc">Tanpa spesialis dan SOP yang terstandarisasi, kualitas bervariasi tergantung siapa yang mengerjakan. Pelanggan merasakan perbedaan itu — dan ingat.</div>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">👥</div>
+        <div class="p-title">Biaya Operasional yang Tidak Efisien</div>
+        <div class="p-desc">Merekrut teknisi reglue, membeli alat, dan menyediakan material khusus membutuhkan investasi besar — sementara volume order mungkin belum cukup untuk membenarkan biaya itu.</div>
+      </div>
+      <div class="problem-card">
+        <div class="p-icon">⚡</div>
+        <div class="p-title">Reputasi yang Sulit Dikendalikan</div>
+        <div class="p-desc">Bisnis yang tidak bisa menjawab kebutuhan pelanggan secara konsisten tidak akan tumbuh dari referral. Reputasi yang kuat dibangun dari setiap pekerjaan yang diselesaikan dengan benar.</div>
+      </div>
+    </div>
+    <div class="problem-transition animate-in d3">
+      <span class="pt-label">Solusi</span>
+      <span class="pt-line"></span>
+      <span class="pt-text">Inilah alasan Sole Solution ada.</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 3: WHO WE ARE -->
+<section class="page" id="p3" data-page="3">
+  <div class="grid-overlay"></div>
+  <div class="page-content">
+    <div class="section-label animate-in">Who We Are</div>
+    <div class="who-layout">
+      <div>
+        <div class="who-left-stmt animate-in d1">
+          YOUR REPAIR<br>PARTNER,<br><em>NOT YOUR<br>COMPETITOR.</em>
+        </div>
+        <div class="who-divider animate-in d2"></div>
+        <div class="who-body animate-in d3">
+          Sole Solution adalah specialist reglue workshop yang hadir khusus untuk mendukung shoe laundry, bisnis shoe care, dan shoe vendor — menangani reglue dan repair yang membutuhkan keahlian dan material di luar kapasitas in-house.<br><br>
+          Kami tidak membuka layanan untuk end consumer. Kami bekerja di balik bisnis Anda — sehingga pelanggan Anda tetap melihat standar yang Anda janjikan, dan nama Anda tetap terlindungi.
+        </div>
+        <div class="who-note animate-in d4">
+          "Pelanggan Anda tidak perlu tahu siapa di balik pekerjaan ini. Yang mereka tahu adalah — bisnis Anda selalu bisa diandalkan."
+        </div>
+      </div>
+      <div class="who-right animate-in d2">
+        <div class="who-item">
+          <div class="who-num">01</div>
+          <div class="who-item-text">
+            <strong>Reglue Specialist</strong>
+            <span>Keahlian mendalam pada sole separation, re-glue, dan bond repair — menghasilkan hasil yang lebih kuat dan lebih tahan lama daripada pekerjaan umum.</span>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="who-num">02</div>
+          <div class="who-item-text">
+            <strong>B2B Only</strong>
+            <span>Tidak menerima order langsung dari konsumen akhir. Seluruh kapasitas dan perhatian kami sepenuhnya untuk partner bisnis.</span>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="who-num">03</div>
+          <div class="who-item-text">
+            <strong>Material yang Menghasilkan Hasil</strong>
+            <span>Material repair grade yang tidak tersedia di pasaran umum — memberikan daya rekat lebih kuat sehingga pelanggan Anda tidak kembali dengan masalah yang sama.</span>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="who-num">04</div>
+          <div class="who-item-text">
+            <strong>Kapasitas yang Bisa Diandalkan</strong>
+            <span>Sistem kerja yang terorganisir memungkinkan kami mendukung pertumbuhan volume bisnis partner secara konsisten — tanpa penurunan kualitas.</span>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="who-num">05</div>
+          <div class="who-item-text">
+            <strong>Kemitraan Jangka Panjang</strong>
+            <span>Kami tumbuh hanya ketika bisnis partner kami tumbuh. Kepentingan kami selaras dengan kepentingan Anda.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 4: SERVICES -->
+<section class="page" id="p4" data-page="4">
+  <div class="grid-overlay"></div>
+  <div class="page-content">
+    <div class="section-label animate-in">Services</div>
+    <div class="big-headline animate-in d1">
+      LAYANAN YANG MEMPERLUAS<br><span style="color:var(--navy-surface)">BISNIS ANDA.</span>
+    </div>
+    <div class="services-grid animate-in d2">
+      <div class="svc-block">
+        <div class="svc-num">01</div>
+        <div class="svc-title">Re-glue &<br>Sole Repair</div>
+        <div class="svc-desc">Spesialisasi utama kami. Hasil reglue yang lebih kuat dan lebih tahan lama — mengurangi kemungkinan pelanggan Anda kembali dengan masalah yang sama dan menurunkan potensi komplain secara signifikan.</div>
+        <div><span class="svc-tag">Hasil lebih tahan lama</span><span class="svc-tag">Komplain berkurang</span><span class="svc-tag">Bergaransi</span></div>
+      </div>
+      <div class="svc-block">
+        <div class="svc-num">02</div>
+        <div class="svc-title">Stitch &<br>Stitching Repair</div>
+        <div class="svc-desc">Memungkinkan bisnis Anda menerima pekerjaan jahitan yang sebelumnya harus ditolak — menambah sumber pendapatan baru tanpa perlu merekrut tenaga ahli atau membeli peralatan baru.</div>
+        <div><span class="svc-tag">Layanan baru</span><span class="svc-tag">Pendapatan tambahan</span><span class="svc-tag">Tanpa investasi alat</span></div>
+      </div>
+      <div class="svc-block">
+        <div class="svc-num">03</div>
+        <div class="svc-title">Sole &<br>Outsole Service</div>
+        <div class="svc-desc">Penggantian outsole, half-sole, dan heel cap — memberi pelanggan Anda opsi untuk memperpanjang usia sepatu mereka. Meningkatkan retensi pelanggan karena bisnis Anda menjadi one-stop solution.</div>
+        <div><span class="svc-tag">Retensi pelanggan</span><span class="svc-tag">One-stop solution</span><span class="svc-tag">Nilai lebih tinggi</span></div>
+      </div>
+      <div class="svc-block">
+        <div class="svc-num">04</div>
+        <div class="svc-title">Material Support<br>for Partners</div>
+        <div class="svc-desc">Untuk workshop yang mengerjakan repair sendiri namun ingin hasil yang lebih kuat dan konsisten. Akses ke material yang sama yang kami gunakan — menghasilkan reglue yang bertahan lebih lama dan pelanggan yang lebih puas.</div>
+        <div><span class="svc-tag">Hasil lebih kuat</span><span class="svc-tag">Kualitas meningkat</span><span class="svc-tag">B2B only</span></div>
+      </div>
+
+      <div class="svc-block-wide">
+        <span class="svc-wide-label">Core Partnership</span>
+        <span class="svc-wide-title">B2B Repair Partnership</span>
+        <span class="svc-wide-desc">Program kemitraan penuh untuk shoe laundry dan bisnis shoe care. Anda menerima order reglue dari pelanggan Anda — kami yang mengerjakannya dengan standar tinggi. Pendapatan bertambah, komplain berkurang, tanpa tambahan operasional dari sisi Anda.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 5: STANDARDS & WARRANTY -->
+<section class="page" id="p5" data-page="5">
+  <div class="grid-overlay"></div>
+  <div class="page-content">
+    <div class="section-label animate-in">Standards & Warranty</div>
+    <div class="big-headline animate-in d1" style="margin-bottom:0">
+      STANDAR YANG MENJAGA<br><span style="color:var(--navy-surface)">NAMA BISNIS ANDA.</span>
+    </div>
+    <div style="height:48px"></div>
+    <div class="std-layout">
+      <div class="std-left animate-in d2">
+        <div class="std-item">
+          <div class="std-icon">📋</div>
+          <div>
+            <div class="std-item-title">SOP Terstandarisasi</div>
+            <div class="std-item-desc">Kualitas yang konsisten bahkan ketika volume order meningkat — karena setiap pekerjaan mengikuti proses yang sama, bukan bergantung pada siapa yang mengerjakannya hari itu.</div>
+          </div>
+        </div>
+        <div class="std-item">
+          <div class="std-icon">🔍</div>
+          <div>
+            <div class="std-item-title">Multi-Step Quality Control</div>
+            <div class="std-item-desc">Setiap pekerjaan diperiksa dua kali sebelum dikembalikan. Hasilnya: tingkat komplain yang jauh lebih rendah — dan pelanggan Anda yang terus kembali karena percaya pada standar bisnis Anda.</div>
+          </div>
+        </div>
+        <div class="std-item">
+          <div class="std-icon">📸</div>
+          <div>
+            <div class="std-item-title">Dokumentasi Sebelum & Sesudah</div>
+            <div class="std-item-desc">Setiap pekerjaan terdokumentasi dengan foto — memberi Anda bukti konkret untuk dikomunikasikan kepada pelanggan dan melindungi bisnis Anda dari klaim yang tidak berdasar.</div>
+          </div>
+        </div>
+        <div class="std-item">
+          <div class="std-icon">✅</div>
+          <div>
+            <div class="std-item-title">Turnaround yang Bisa Diandalkan</div>
+            <div class="std-item-desc">Timeline yang jelas di awal, update proaktif, dan pengiriman tepat waktu — sehingga Anda bisa memberikan kepastian kepada pelanggan Anda tanpa khawatir dengan apa yang terjadi di balik layar.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="warranty-block animate-in d3">
+        <div class="wb-label">Warranty Policy</div>
+        <div class="wb-headline">
+          PEKERJAAN KAMI<br><span>BERGARANSI.</span>
+        </div>
+        <div class="wb-body">
+          Kami berdiri di balik setiap hasil pekerjaan yang keluar dari workshop kami. Jika ada masalah yang timbul dari proses pengerjaan kami — bukan dari penggunaan abnormal — kami tangani tanpa biaya tambahan. Ini bukan sekadar janji. Ini bagian dari standar yang melindungi nama bisnis Anda.
+        </div>
+        <div class="wb-steps">
+          <div class="wb-step">
+            <div class="wb-step-num">01</div>
+            <div class="wb-step-text">
+              <strong>Periode Garansi</strong>
+              <span>Berlaku selama [X] hari dari tanggal penyelesaian pekerjaan</span>
+            </div>
+          </div>
+          <div class="wb-step">
+            <div class="wb-step-num">02</div>
+            <div class="wb-step-text">
+              <strong>Cara Klaim</strong>
+              <span>Hubungi kami via WhatsApp dengan foto kondisi dan nomor order — respons dalam 1×24 jam</span>
+            </div>
+          </div>
+          <div class="wb-step">
+            <div class="wb-step-num">03</div>
+            <div class="wb-step-text">
+              <strong>Proses Garansi</strong>
+              <span>Assessment bersama dan penyelesaian tanpa biaya tambahan jika masuk dalam coverage garansi</span>
+            </div>
+          </div>
+          <div class="wb-step">
+            <div class="wb-step-num">04</div>
+            <div class="wb-step-text">
+              <strong>Tidak Berlaku Untuk</strong>
+              <span>Kerusakan akibat penggunaan abnormal, penyimpanan tidak tepat, atau perbaikan oleh pihak lain setelah kami</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 6: PARTNERSHIP FLOW -->
+<section class="page" id="p6" data-page="6">
+  <div class="grid-overlay"></div>
+  <div class="page-content">
+    <div class="section-label animate-in">Partnership Process</div>
+    <div class="big-headline animate-in d1">HOW PARTNERSHIP<br><span style="color:var(--navy-surface)">WORKS.</span></div>
+    <div class="flow-intro animate-in d2">
+      <div class="body" style="font-size:15px;font-weight:300;color:var(--text-mid);line-height:1.95">Proses kemitraan kami dirancang sederhana dan transparan. Semua ekspektasi, lingkup kerja, dan komitmen ditetapkan sebelum kita mulai — sehingga tidak ada kejutan di tengah jalan dan bisnis Anda tidak mengambil risiko.</div>
+    </div>
+
+    <div class="flow-diagram animate-in d3">
+      <div class="flow-step">
+        <div class="fs-num">01</div>
+        <div class="fs-title">Terima Proposal</div>
+        <div class="fs-desc">Anda mendapatkan gambaran lengkap tentang bagaimana kami bekerja, apa yang kami tawarkan, dan manfaat konkret untuk bisnis Anda.</div>
+        <div class="fs-badge">Sekarang</div>
+      </div>
+      <div class="flow-step">
+        <div class="fs-num">02</div>
+        <div class="fs-title">Diskusi Awal</div>
+        <div class="fs-desc">Percakapan santai untuk memahami bisnis Anda, layanan apa yang ingin ditambahkan, dan bagaimana kemitraan ini bisa langsung memberikan nilai nyata.</div>
+        <div class="fs-badge">Via WA / Phone</div>
+      </div>
+      <div class="flow-step">
+        <div class="fs-num">03</div>
+        <div class="fs-title">Zoom Meeting</div>
+        <div class="fs-desc">Presentasi kapasitas, standar kerja, dan alur teknis kerjasama secara langsung — termasuk semua pertanyaan yang ingin Anda klarifikasi.</div>
+        <div class="fs-badge">30–45 menit</div>
+      </div>
+      <div class="flow-step">
+        <div class="fs-num">04</div>
+        <div class="fs-title">Terms & Conditions</div>
+        <div class="fs-desc">Lingkup kerja, harga, turnaround, dan kebijakan garansi — semua didokumentasikan secara tertulis dan disepakati sebelum mulai. Tidak ada ambiguitas.</div>
+        <div class="fs-badge">Tertulis & jelas</div>
+      </div>
+      <div class="flow-step">
+        <div class="fs-num">05</div>
+        <div class="fs-title">Partnership Agreement</div>
+        <div class="fs-desc">Formalisasi kemitraan yang melindungi kedua belah pihak — landasan kerja sama yang profesional dan jangka panjang.</div>
+        <div class="fs-badge">Formalisasi</div>
+      </div>
+    </div>
+
+    <div class="flow-review animate-in d4">
+      <div class="fr-num">06</div>
+      <div class="fr-text">
+        <strong>3-Month Partnership Review</strong>
+        <p>Setelah tiga bulan berjalan, kita evaluasi bersama — apakah hasilnya sesuai ekspektasi bisnis Anda, apa yang perlu ditingkatkan, dan bagaimana kemitraan ini bisa terus berkembang lebih baik.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 7: WHAT PARTNERS GET -->
+<section class="page" id="p7" data-page="7">
+  <div class="grid-overlay"></div>
+  <div class="page-content">
+    <div class="section-label animate-in">What Partners Get</div>
+    <div class="value-layout">
+      <div class="value-left">
+        <div class="big-headline animate-in d1">BISNIS ANDA<br><span style="color:var(--navy-surface)">YANG TUMBUH.</span></div>
+        <div class="sub animate-in d2">
+          Kami tidak menjual jasa repair. Kami membantu bisnis Anda menawarkan lebih banyak, melayani lebih baik, dan tumbuh lebih cepat — tanpa tambahan beban operasional.
+        </div>
+        <div class="value-quote animate-in d3">
+          "Bisnis yang bisa menjawab semua kebutuhan pelanggannya adalah bisnis yang tidak perlu mengejar pelanggan baru — pelanggan yang ada akan terus kembali dan membawa orang lain."
+          <cite>— Prinsip Kemitraan Sole Solution</cite>
+        </div>
+      </div>
+      <div class="value-right animate-in d2">
+        <div class="value-item">
+          <div class="vi-indicator"></div>
+          <div>
+            <div class="vi-title">Pendapatan Baru Tanpa Investasi Baru</div>
+            <div class="vi-desc">Terima order reglue dari pelanggan Anda dan kirim ke kami — Anda mendapat margin tanpa perlu membeli alat, material, atau menambah staf. Pendapatan baru dengan nol tambahan operasional.</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="vi-indicator"></div>
+          <div>
+            <div class="vi-title">Komplain yang Berkurang Drastis</div>
+            <div class="vi-desc">Reglue yang dikerjakan oleh spesialis dengan material yang tepat jauh lebih kecil kemungkinan bermasalah. Waktu Anda tidak lagi habis untuk menangani komplain yang sama berulang kali.</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="vi-indicator"></div>
+          <div>
+            <div class="vi-title">Layanan Lebih Lengkap, Pelanggan Lebih Loyal</div>
+            <div class="vi-desc">Pelanggan yang bisa mendapatkan semua kebutuhannya di satu tempat jarang mencari alternatif. Bisnis Anda menjadi pilihan pertama — dan tetap menjadi pilihan pertama.</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="vi-indicator"></div>
+          <div>
+            <div class="vi-title">Kualitas yang Konsisten Saat Volume Naik</div>
+            <div class="vi-desc">Proses terstandarisasi kami memastikan kualitas yang sama — apakah Anda mengirim 5 atau 50 pasang. Pertumbuhan volume tidak berarti penurunan standar.</div>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="vi-indicator"></div>
+          <div>
+            <div class="vi-title">Reputasi yang Terlindungi</div>
+            <div class="vi-desc">Setiap pekerjaan yang keluar dari workshop kami mencerminkan nama bisnis Anda. Kami menjaga standar itu — sehingga reputasi Anda yang dibangun bertahun-tahun tetap kokoh.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 8: OPERATIONAL CAPABILITY -->
+<section class="page" id="p8" data-page="8">
+  <div class="grid-overlay"></div>
+  <div class="page-content">
+    <div class="section-label animate-in">Operational Capability</div>
+    <div class="capacity-layout">
+      <div class="capacity-left">
+        <div class="big-headline animate-in d1">
+          SIAP MENDUKUNG<br><span style="color:var(--navy-surface)">BISNIS YANG TUMBUH.</span>
+        </div>
+        <div class="body animate-in d2">
+          Kemampuan operasional kami dirancang untuk satu tujuan: menjadi repair partner yang bisa Anda andalkan — hari ini, dan seiring bisnis Anda tumbuh. Bukan sekadar workshop yang mengerjakan order, tapi mitra yang siap mendukung volume Anda yang meningkat tanpa penurunan kualitas.
+        </div>
+        <div class="capacity-note animate-in d3">
+          Kami percaya keandalan lebih penting dari angka produksi. Yang Anda butuhkan adalah partner yang konsisten — bukan partner yang terlihat besar di atas kertas.
+        </div>
+      </div>
+      <div class="animate-in d2">
+        <div class="cap-stack">
+          <div class="cap-row">
+            <div class="cap-num-block">
+              <div class="cap-num">2K</div>
+              <div class="cap-unit">pairs / bulan</div>
+            </div>
+            <div class="cap-info">
+              <strong>Kapasitas Terorganisir</strong>
+              <p>Kapasitas hingga 2.000 pasang per bulan dengan sistem penyimpanan yang terorganisir — setiap order tercatat, terlacak, dan dikerjakan tepat waktu.</p>
+            </div>
+          </div>
+          <div class="cap-row">
+            <div class="cap-num-block">
+              <div class="cap-num">SOP</div>
+              <div class="cap-unit">terstandarisasi</div>
+            </div>
+            <div class="cap-info">
+              <strong>Kualitas yang Bisa Diprediksi</strong>
+              <p>SOP tertulis untuk setiap jenis pekerjaan memastikan kualitas yang sama — tidak bergantung pada siapa yang mengerjakan atau seberapa tinggi volume hari itu.</p>
+            </div>
+          </div>
+          <div class="cap-row">
+            <div class="cap-num-block">
+              <div class="cap-num">T/A</div>
+              <div class="cap-unit">on-schedule</div>
+            </div>
+            <div class="cap-info">
+              <strong>Turnaround yang Tepat Waktu</strong>
+              <p>Workflow terstruktur memastikan turnaround time yang disepakati terpenuhi secara konsisten — sehingga Anda bisa memberikan kepastian kepada pelanggan Anda.</p>
+            </div>
+          </div>
+          <div class="cap-row">
+            <div class="cap-num-block">
+              <div class="cap-num">↑</div>
+              <div class="cap-unit">scalable</div>
+            </div>
+            <div class="cap-info">
+              <strong>Mendukung Pertumbuhan Anda</strong>
+              <p>Sistem operasional kami dirancang untuk tumbuh bersama volume bisnis partner. Ketika bisnis Anda berkembang, kapasitas dukungan kami berkembang bersamanya.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cap-footer animate-in d3">
+          Detail kapasitas aktual dan turnaround time akan dikonfirmasi saat diskusi awal — disesuaikan dengan volume dan jenis pekerjaan spesifik bisnis Anda.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 9: CONTACT -->
+<section class="page" id="p9" data-page="9">
+  <div class="grid-overlay"></div>
+  <div class="contact-inner">
+    <div class="contact-overline animate-in">Siap menambah layanan dan meningkatkan standar bisnis Anda?</div>
+    <div class="contact-headline animate-in d1">
+      MARI MULAI<br>PERCAKAPAN<br><span>YANG TEPAT.</span>
+    </div>
+    <div class="contact-sub animate-in d2">
+      Jika bisnis Anda menjaga reputasinya dengan serius — dan ingin menambah pendapatan tanpa tambahan operasional — kami ingin berbicara dengan Anda.
+    </div>
+    <div class="contact-buttons animate-in d3">
+      <div class="btn-p">Hubungi via WhatsApp ›</div>
+      <div class="btn-s">Jadwalkan Zoom Meeting</div>
+    </div>
+    <div class="contact-grid animate-in d4">
+      <div class="contact-item">
+        <div class="ci-type">WhatsApp</div>
+        <div class="ci-val">+62 859 5050 3108</div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-type">Email</div>
+        <div class="ci-val">solesolution.partner@gmail.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-type">Website</div>
+        <div class="ci-val">Coming Soon</div>
+      </div>
+    </div>
+    <div class="contact-closing animate-in d6">
+      Kami tidak bekerja sama dengan semua orang.<br>Kami bermitra dengan bisnis yang memahami bahwa reputasi dan konsistensi adalah fondasi pertumbuhan jangka panjang — bukan pengeluaran, tapi investasi.
+    </div>
+  </div>
+</section>
+
+<!-- BACK COVER -->
+<section class="page" id="p10" data-page="10">
+  <div class="grid-overlay"></div>
+  <div class="bc-top animate-in">
+    <div>
+      <div class="bc-brand">SOLE SOLUTION</div>
+      <div class="bc-tagline">Specialist Reglue Workshop · B2B Partnership · Consistent Results</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);">Proposal Reference</div>
+      <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--gold);margin-top:4px;">SS-B2B-2025-001</div>
+    </div>
+  </div>
+  <div class="bc-mid animate-in d1">
+    <div class="bc-big">SOLE SOLUTION</div>
+    <div class="bc-stmt">Trust. Consistency. Growth.</div>
+  </div>
+  <div class="bc-bottom animate-in d2">
+    <div class="bc-info">
+      Dokumen ini bersifat rahasia dan ditujukan<br>
+      khusus untuk penerima yang namanya tercantum.<br>
+      © 2025 Sole Solution — All Rights Reserved.
+    </div>
+    <div class="bc-badge">
+      <div class="bc-dot"></div>
+      Confidential · B2B Only
+    </div>
+  </div>
+</section>
+
+<script>
+  const pages=document.querySelectorAll('.page'),nav=document.getElementById('navDots');
+  pages.forEach((p,i)=>{
+    const d=document.createElement('div');
+    d.className='nav-dot'+(i===0?' active':'');
+    d.addEventListener('click',()=>p.scrollIntoView({behavior:'smooth'}));
+    nav.appendChild(d);
+  });
+  const pObs=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        const i=Array.from(pages).indexOf(e.target);
+        document.querySelectorAll('.nav-dot').forEach((d,j)=>d.classList.toggle('active',j===i));
+      }
+    });
+  },{threshold:.15});
+  pages.forEach(p=>pObs.observe(p));
+  const aObs=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');aObs.unobserve(e.target);}});
+  },{threshold:.08});
+  document.querySelectorAll('.animate-in').forEach(el=>aObs.observe(el));
+  window.addEventListener('scroll',()=>{
+    const d=document.documentElement;
+    document.getElementById('progressBar').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
+    if(d.scrollTop>100)document.getElementById('scrollHint').classList.add('hidden');
+  });
+</script>
+</body>
+</html>
