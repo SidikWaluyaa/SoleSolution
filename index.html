@@ -1,429 +1,1432 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOLE SOLUTION — B2B Reglue Partner</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;1,400&family=Barlow+Condensed:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#C8D8EA;--bg-soft:#D6E4F0;--bg-deep:#E4EDF6;--bg-mid:#B8CCE0;--bg-dark:#9FBAD4;
-  --text:#1E2E40;--text-mid:#3D5166;--text-light:#6A849E;--divider:#A8BECC;
-  --navy:#162333;--navy-s:#243A52;
-  --gold:#D89A5B;--gold-l:#E3B07A;--gold-d:#C2834A;
-  --white:#F4F8FC;--wcard:#EEF4FA;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;overflow-x:hidden}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOLE SOLUTION — Naikkan Omset Laundry Anda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;1,400&family=Barlow+Condensed:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #C8D8EA;
+      --bg-soft: #D6E4F0;
+      --bg-mid: #B8CCE0;
+      --bg-dark: #9FBAD4;
+      --text: #1E2E40;
+      --text-mid: #3D5166;
+      --text-light: #6A849E;
+      --divider: #A8BECC;
+      --navy: #162333;
+      --navy-s: #243A52;
+      --gold: #D89A5B;
+      --gold-d: #C2834A;
+      --wcard: #EEF4FA;
+    }
 
-/* PROGRESS */
-.pbar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--navy-s),var(--gold));width:0%;z-index:300;transition:width .1s linear}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:14px 40px;background:rgba(184,204,224,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--divider)}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:6px;color:var(--navy)}
-.nav-cta{padding:9px 22px;background:var(--gold);color:var(--navy);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border:none;transition:background .25s;white-space:nowrap}
-.nav-cta:hover{background:var(--gold-d)}
+    html {
+      scroll-behavior: smooth
+    }
 
-/* SCROLL HINT */
-.shint{position:fixed;bottom:28px;right:36px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:100;transition:opacity .4s}
-.shint.gone{opacity:0;pointer-events:none}
-.sline{width:1px;height:40px;background:linear-gradient(180deg,var(--gold),transparent);animation:sa 1.8s ease-in-out infinite}
-@keyframes sa{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(0);transform-origin:bottom}}
-.slbl{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--text-light)}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      overflow-x: hidden
+    }
 
-/* ANIMATE IN */
-.ai{opacity:0;transform:translateY(18px);transition:opacity .75s ease,transform .75s ease}
-.ai.v{opacity:1;transform:translateY(0)}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+    .pbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--navy-s), var(--gold));
+      width: 0%;
+      z-index: 300;
+      transition: width .1s linear
+    }
 
-/* SHARED ATOMS */
-.tag{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.tag::after{content:'';width:32px;height:1px;background:var(--gold);opacity:.5}
-.h1{font-family:'Bebas Neue',sans-serif;line-height:.91;letter-spacing:.4px;color:var(--navy)}
-.h1 em{font-style:normal;color:var(--navy-s)}
-.body{font-size:15px;font-weight:300;color:var(--text-mid);line-height:1.9}
-.pill{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);background:rgba(30,46,64,.08);padding:6px 14px;border:1px solid var(--divider)}
-.pill::before{content:'✓';color:var(--gold)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 44px;background:var(--gold);color:var(--navy);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:4px;text-transform:uppercase;cursor:pointer;border:none;transition:background .25s;width:fit-content}
-.btn:hover{background:var(--gold-d)}
-.btn-lg{padding:20px 56px;font-size:16px;letter-spacing:4px}
-.photo{overflow:hidden;position:relative;background:var(--navy-s)}
-.photo img{width:100%;height:100%;object-fit:cover;display:block}
-.photo-lbl{position:absolute;bottom:14px;left:14px;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);background:rgba(0,0,0,.25);padding:3px 8px}
-.grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(30,46,64,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(30,46,64,.05) 1px,transparent 1px);background-size:60px 60px;opacity:.6}
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 24px;
+      background: rgba(184, 204, 224, .97);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--divider)
+    }
 
-/* ═══ P1 — HERO ═══ */
-#p1{min-height:100vh;display:grid;grid-template-rows:60vh auto;padding-top:50px}
-.p1-img{position:relative}
-.p1-img .photo{height:100%}
-.p1-img .photo img{filter:brightness(.72) saturate(1.1)}
-.p1-text{background:var(--bg-soft);padding:56px 32px 64px;display:flex;flex-direction:column;gap:0;position:relative}
-.p1-hl{font-size:clamp(48px,11vw,80px);margin-bottom:20px}
-.p1-sub{font-size:15px;font-weight:300;color:var(--text-mid);line-height:1.85;max-width:520px;margin-bottom:28px}
-.p1-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 6px;
+      color: var(--navy)
+    }
 
-/* ═══ P2 — PROBLEM ═══ */
-#p2{min-height:100vh;display:grid;grid-template-rows:55vh auto}
-.p2-img .photo{height:100%}
-.p2-img .photo img{filter:brightness(.68) saturate(1.2)}
-.p2-text{background:var(--bg);padding:56px 32px 64px;position:relative}
-.p2-hl{font-size:clamp(40px,9vw,68px);margin-bottom:24px}
-.p2-list{display:flex;flex-direction:column;gap:1px;background:var(--divider);margin:28px 0}
-.p2-row{display:flex;align-items:center;gap:14px;padding:18px 22px;background:var(--bg);font-size:14px;font-weight:400;color:var(--text-mid)}
-.p2-row::before{content:'—';color:var(--gold);font-weight:700;flex-shrink:0}
-.p2-close{padding:22px 26px;border-left:3px solid var(--gold);background:var(--bg-mid)}
-.p2-close p{font-size:15px;font-weight:500;color:var(--navy);line-height:1.75;font-style:italic}
+    .nav-cta {
+      padding: 9px 18px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: background .25s;
+      white-space: nowrap
+    }
 
-/* ═══ P3 — SOLUTION ═══ */
-#p3{min-height:100vh;display:grid;grid-template-rows:55vh auto}
-.p3-img .photo{height:100%}
-.p3-img .photo img{filter:brightness(.7) saturate(1.1)}
-.p3-text{background:var(--bg-soft);padding:56px 32px 64px;position:relative}
-.p3-hl{font-size:clamp(38px,9vw,66px);margin-bottom:24px}
-.p3-items{display:flex;flex-direction:column;gap:1px;background:var(--divider);margin-top:28px}
-.p3-item{display:flex;align-items:flex-start;gap:14px;padding:20px 22px;background:var(--bg-soft);transition:background .25s}
-.p3-item:hover{background:var(--wcard)}
-.p3-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:8px}
-.p3-t{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--navy);margin-bottom:2px}
-.p3-d{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.7}
+    .nav-cta:hover {
+      background: var(--gold-d)
+    }
 
-/* ═══ P4 — QUALITY & CAPACITY ═══ */
-#p4{position:relative;overflow:hidden}
-.p4-bg .photo{height:100vh;min-height:600px}
-.p4-bg .photo img{filter:brightness(.35) saturate(1.05)}
-.p4-bg{position:absolute;inset:0;z-index:0}
-.p4-over{position:relative;z-index:1;min-height:100vh;padding:80px 32px 64px;display:flex;flex-direction:column;justify-content:flex-end}
-.p4-hl{font-size:clamp(48px,11vw,82px);color:#E8F1FA;margin-bottom:8px}
-.p4-hl em{font-style:normal;color:var(--gold)}
-.p4-blocks{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.12);margin-top:36px}
-.p4-block{padding:26px 22px;background:rgba(255,255,255,.05);transition:background .25s}
-.p4-block:hover{background:rgba(255,255,255,.1)}
-.p4-num{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--gold);line-height:1;opacity:.55;margin-bottom:-6px}
-.p4-bt{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#D8E8F2;margin-bottom:4px}
-.p4-bd{font-size:12px;font-weight:300;color:rgba(196,214,230,.7);line-height:1.65}
+    .ai {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .75s ease, transform .75s ease
+    }
 
-/* ═══ P5 — WORKFLOW ═══ */
-#p5{min-height:100vh;display:grid;grid-template-rows:50vh auto}
-.p5-img .photo{height:100%}
-.p5-img .photo img{filter:brightness(.72) saturate(1.1)}
-.p5-text{background:var(--bg-soft);padding:56px 32px 64px;position:relative}
-.p5-hl{font-size:clamp(38px,9vw,66px);margin-bottom:24px}
-.flow-list{display:flex;flex-direction:column;gap:1px;background:var(--divider);margin-top:28px}
-.fl-item{display:flex;align-items:stretch;background:var(--bg-soft);transition:background .25s}
-.fl-item:hover{background:var(--wcard)}
-.fl-item:hover .fl-n{color:var(--gold)}
-.fl-n{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--bg-dark);line-height:1;padding:20px 18px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--divider);min-width:64px;transition:color .25s}
-.fl-body{padding:20px 24px}
-.fl-t{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--navy);margin-bottom:3px}
-.fl-d{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.65}
+    .ai.v {
+      opacity: 1;
+      transform: translateY(0)
+    }
 
-/* ═══ P6 — CLOSING ═══ */
-#p6{position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
-.p6-bg{position:absolute;inset:0;z-index:0}
-.p6-bg .photo{height:100%}
-.p6-bg .photo img{filter:brightness(.28) saturate(1.05)}
-.p6-over{position:relative;z-index:1;padding:80px 32px;max-width:700px}
-.p6-ol{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
-.p6-hl{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,13vw,100px);line-height:.88;letter-spacing:.4px;color:#E8F1FA;margin-bottom:24px}
-.p6-hl em{font-style:normal;color:var(--gold);display:block}
-.p6-sub{font-size:15px;font-weight:300;color:rgba(196,214,230,.75);line-height:1.85;max-width:460px;margin:0 auto 44px}
-.p6-contacts{display:flex;flex-direction:column;gap:20px;align-items:center;margin-top:36px}
-.p6-ci .lbl{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;opacity:.8}
-.p6-ci .val{font-size:14px;color:rgba(196,214,230,.8)}
-.p6-foot{margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;font-weight:300;font-style:italic;color:rgba(196,214,230,.35);line-height:1.9}
+    .d1 {
+      transition-delay: .1s
+    }
 
-/* ═══ DESKTOP ≥ 768px ═══ */
-@media(min-width:768px){
-  nav{padding:16px 52px}
-  .nav-logo{font-size:20px;letter-spacing:7px}
-  .nav-cta{font-size:12px}
+    .d2 {
+      transition-delay: .2s
+    }
 
-  /* P1 */
-  #p1{grid-template-rows:none;grid-template-columns:1fr 1fr;min-height:100vh}
-  .p1-img{order:2}
-  .p1-text{order:1;padding:0 64px 0 80px;justify-content:center;min-height:100vh}
-  .p1-hl{font-size:clamp(54px,5.5vw,84px)}
-  .p1-sub{font-size:16px}
+    .d3 {
+      transition-delay: .3s
+    }
 
-  /* P2 */
-  #p2{grid-template-rows:none;grid-template-columns:1fr 1fr;min-height:100vh}
-  .p2-img{order:1}
-  .p2-text{order:2;padding:0 64px;justify-content:center;display:flex;flex-direction:column;min-height:100vh}
-  .p2-hl{font-size:clamp(44px,4.5vw,70px)}
+    .d4 {
+      transition-delay: .4s
+    }
 
-  /* P3 */
-  #p3{grid-template-rows:none;grid-template-columns:1fr 1fr;min-height:100vh}
-  .p3-img{order:2}
-  .p3-text{order:1;padding:0 64px 0 80px;justify-content:center;display:flex;flex-direction:column;min-height:100vh}
-  .p3-hl{font-size:clamp(42px,4.5vw,68px)}
+    .d5 {
+      transition-delay: .5s
+    }
 
-  /* P4 */
-  .p4-over{padding:100px 80px 80px;justify-content:center}
-  .p4-blocks{grid-template-columns:repeat(4,1fr)}
-  .p4-hl{font-size:clamp(60px,7vw,96px)}
+    .tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px
+    }
 
-  /* P5 */
-  #p5{grid-template-rows:none;grid-template-columns:1fr 1fr;min-height:100vh}
-  .p5-img{order:2}
-  .p5-text{order:1;padding:0 64px 0 80px;justify-content:center;display:flex;flex-direction:column;min-height:100vh}
-  .p5-hl{font-size:clamp(42px,4.5vw,68px)}
+    .tag::after {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      opacity: .5
+    }
 
-  /* P6 */
-  .p6-contacts{flex-direction:row;justify-content:center;gap:48px}
-  .p6-hl{font-size:clamp(72px,9vw,120px)}
-}
+    .h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      line-height: .91;
+      letter-spacing: .4px;
+      color: var(--navy)
+    }
 
-@media(min-width:1200px){
-  .p1-hl{font-size:86px}
-  .p2-hl,.p3-hl,.p5-hl{font-size:72px}
-  .p4-hl{font-size:100px}
-}
-</style>
+    .h1 em {
+      font-style: normal;
+      color: var(--navy-s)
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: rgba(30, 46, 64, .08);
+      padding: 6px 14px;
+      border: 1px solid var(--divider)
+    }
+
+    .pill::before {
+      content: '✓';
+      color: var(--gold)
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 44px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: background .25s
+    }
+
+    .btn:hover {
+      background: var(--gold-d)
+    }
+
+    .btn-xl {
+      padding: 22px 64px;
+      font-size: 17px
+    }
+
+    .photo {
+      overflow: hidden;
+      position: relative;
+      background: var(--navy-s)
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      display: block
+    }
+
+    .photo-lbl {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .35);
+      background: rgba(0, 0, 0, .25);
+      padding: 3px 8px
+    }
+
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(30, 46, 64, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(30, 46, 64, .05) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: .6
+    }
+
+    /* P1 HERO */
+    #p1 {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 58vh auto;
+      padding-top: 50px
+    }
+
+    .p1-img .photo {
+      height: 100%
+    }
+
+    .p1-text {
+      background: var(--bg-soft);
+      padding: 52px 28px 60px;
+      display: flex;
+      flex-direction: column;
+      position: relative
+    }
+
+    .p1-est {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .p1-est::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--gold)
+    }
+
+    .p1-hl {
+      font-size: clamp(46px, 11vw, 78px);
+      margin-bottom: 18px
+    }
+
+    .p1-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.85;
+      max-width: 520px;
+      margin-bottom: 26px
+    }
+
+    .p1-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 30px
+    }
+
+    /* P2 MASALAH */
+    #p2 {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 52vh auto
+    }
+
+    .p2-img .photo {
+      height: 100%
+    }
+
+    .p2-text {
+      background: var(--bg);
+      padding: 52px 28px 60px;
+      position: relative
+    }
+
+    .p2-hl {
+      font-size: clamp(34px, 8vw, 64px);
+      margin-bottom: 20px
+    }
+
+    .p2-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--divider);
+      margin: 24px 0
+    }
+
+    .p2-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 18px 20px;
+      background: var(--bg)
+    }
+
+    .p2-row::before {
+      content: '—';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px
+    }
+
+    .p2-rt {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 2px
+    }
+
+    .p2-rd {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.6
+    }
+
+    .p2-close {
+      padding: 20px 24px;
+      border-left: 3px solid var(--gold);
+      background: var(--bg-mid)
+    }
+
+    .p2-close p {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.75;
+      font-style: italic
+    }
+
+    /* P3 SOLUSI */
+    #p3 {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 52vh auto
+    }
+
+    .p3-img .photo {
+      height: 100%
+    }
+
+    .p3-text {
+      background: var(--bg-soft);
+      padding: 52px 28px 60px;
+      position: relative
+    }
+
+    .p3-hl {
+      font-size: clamp(36px, 9vw, 64px);
+      margin-bottom: 20px
+    }
+
+    .p3-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--divider);
+      margin-top: 24px
+    }
+
+    .p3-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 18px 20px;
+      background: var(--bg-soft);
+      transition: background .25s
+    }
+
+    .p3-item:hover {
+      background: var(--wcard)
+    }
+
+    .p3-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 8px
+    }
+
+    .p3-t {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 2px
+    }
+
+    .p3-d {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.65
+    }
+
+    /* P4 GROWTH */
+    #p4 {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 50vh auto
+    }
+
+    .p4-img .photo {
+      height: 100%
+    }
+
+    .p4-text {
+      background: var(--navy);
+      padding: 52px 28px 60px;
+      position: relative
+    }
+
+    .p4-hl {
+      font-size: clamp(30px, 7vw, 58px);
+      color: #E8F1FA;
+      margin-bottom: 16px;
+      line-height: .92
+    }
+
+    .p4-hl em {
+      font-style: normal;
+      color: var(--gold)
+    }
+
+    .p4-hl small {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(13px, 3vw, 18px);
+      font-weight: 300;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(196, 214, 230, .5);
+      display: block;
+      margin: 10px 0 4px
+    }
+
+    .p4-services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255, 255, 255, .1);
+      margin: 24px 0
+    }
+
+    .p4-svc {
+      padding: 20px 20px;
+      background: rgba(255, 255, 255, .04);
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .p4-svc-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0
+    }
+
+    .p4-svc-n {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(196, 214, 230, .75)
+    }
+
+    .p4-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(196, 214, 230, .6);
+      line-height: 1.85;
+      max-width: 480px
+    }
+
+    /* P5 TRUST */
+    #p5 {
+      position: relative;
+      overflow: hidden
+    }
+
+    .p5-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0
+    }
+
+    .p5-bg .photo {
+      height: 100%;
+      min-height: 100vh
+    }
+
+    .p5-bg .photo img {
+      filter: brightness(.28) saturate(1.05)
+    }
+
+    .p5-over {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      padding: 80px 28px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end
+    }
+
+    .p5-hl {
+      font-size: clamp(46px, 11vw, 80px);
+      color: #E8F1FA;
+      margin-bottom: 8px
+    }
+
+    .p5-hl em {
+      font-style: normal;
+      color: var(--gold)
+    }
+
+    .p5-mid {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(13px, 3vw, 18px);
+      font-weight: 300;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(196, 214, 230, .45);
+      margin: 6px 0 2px
+    }
+
+    .p5-blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255, 255, 255, .12);
+      margin-top: 32px
+    }
+
+    .p5-block {
+      padding: 24px 20px;
+      background: rgba(255, 255, 255, .05);
+      transition: background .25s
+    }
+
+    .p5-block:hover {
+      background: rgba(255, 255, 255, .1)
+    }
+
+    .p5-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px;
+      color: var(--gold);
+      line-height: 1;
+      opacity: .55;
+      margin-bottom: -4px
+    }
+
+    .p5-bt {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #D8E8F2;
+      margin-bottom: 4px
+    }
+
+    .p5-bd {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(196, 214, 230, .65);
+      line-height: 1.6
+    }
+
+    /* P6 WORKFLOW */
+    #p6 {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 50vh auto
+    }
+
+    .p6-img .photo {
+      height: 100%;
+    }
+
+    .p6-text {
+      background: var(--bg-soft);
+      padding: 52px 28px 60px;
+      position: relative
+    }
+
+    .p6-hl {
+      font-size: clamp(36px, 9vw, 64px);
+      margin-bottom: 20px
+    }
+
+    .flow-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--divider);
+      margin-top: 24px
+    }
+
+    .fl-item {
+      display: flex;
+      align-items: stretch;
+      background: var(--bg-soft);
+      transition: background .25s
+    }
+
+    .fl-item:hover {
+      background: var(--wcard)
+    }
+
+    .fl-item:hover .fl-n {
+      color: var(--gold)
+    }
+
+    .fl-n {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 34px;
+      color: var(--bg-dark);
+      line-height: 1;
+      padding: 18px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--divider);
+      min-width: 60px;
+      transition: color .25s
+    }
+
+    .fl-body {
+      padding: 18px 22px
+    }
+
+    .fl-t {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 3px
+    }
+
+    .fl-d {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.6
+    }
+
+    /* P7 MISI */
+    #p7 {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 50vh auto
+    }
+
+    .p7-img .photo {
+      height: 100%
+    }
+
+    .p7-text {
+      background: var(--navy-s);
+      padding: 52px 28px 60px;
+      position: relative
+    }
+
+    .p7-hl {
+      font-size: clamp(36px, 9vw, 64px);
+      color: #E8F1FA;
+      margin-bottom: 8px
+    }
+
+    .p7-hl em {
+      font-style: normal;
+      color: var(--gold)
+    }
+
+    .p7-body {
+      margin: 20px 0 0
+    }
+
+    .p7-para {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(196, 214, 230, .7);
+      line-height: 1.9;
+      margin-bottom: 14px;
+      max-width: 480px
+    }
+
+    .p7-callout {
+      padding: 22px 24px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255, 255, 255, .04);
+      margin: 20px 0
+    }
+
+    .p7-callout p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      line-height: 1.2
+    }
+
+    /* P8 CLOSING */
+    #p8 {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center
+    }
+
+    .p8-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0
+    }
+
+    .p8-bg .photo {
+      height: 100%
+    }
+
+    .p8-bg .photo img {
+      filter: brightness(.2) saturate(1.05)
+    }
+
+    .p8-over {
+      position: relative;
+      z-index: 1;
+      padding: 80px 28px;
+      max-width: 680px;
+      width: 100%
+    }
+
+    .p8-ol {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px
+    }
+
+    .p8-intro {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(13px, 3vw, 17px);
+      font-weight: 300;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(196, 214, 230, .45);
+      margin-bottom: 12px
+    }
+
+    .p8-hl {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(46px, 11vw, 88px);
+      line-height: .88;
+      color: #E8F1FA;
+      margin-bottom: 12px
+    }
+
+    .p8-hl em {
+      font-style: normal;
+      color: var(--gold);
+      display: block
+    }
+
+    .p8-or {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(196, 214, 230, .3);
+      margin: 14px 0
+    }
+
+    .p8-datebox {
+      border: 1px solid rgba(216, 154, 91, .35);
+      padding: 24px 36px;
+      margin: 28px auto;
+      max-width: 360px
+    }
+
+    .p8-dlbl {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: .75;
+      margin-bottom: 10px
+    }
+
+    .p8-date {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 10vw, 70px);
+      color: #E8F1FA;
+      line-height: 1;
+      letter-spacing: 2px
+    }
+
+    .p8-dsub {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(196, 214, 230, .5);
+      margin-top: 8px;
+      line-height: 1.7
+    }
+
+    .p8-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(196, 214, 230, .6);
+      line-height: 1.9;
+      max-width: 420px;
+      margin: 0 auto 32px
+    }
+
+    .p8-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+      margin-top: 28px
+    }
+
+    .p8-ci .lbl {
+      font-family: 'Space Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+      opacity: .8
+    }
+
+    .p8-ci .val {
+      font-size: 14px;
+      color: rgba(196, 214, 230, .75)
+    }
+
+    .p8-foot {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      font-size: 11px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(196, 214, 230, .28);
+      line-height: 1.9
+    }
+
+    /* TABLET+ */
+    @media(min-width:768px) {
+      nav {
+        padding: 16px 52px
+      }
+
+      .nav-logo {
+        font-size: 20px;
+        letter-spacing: 7px
+      }
+
+      #p1 {
+        grid-template-rows: none;
+        grid-template-columns: 1fr 1fr;
+        padding-top: 0
+      }
+
+      .p1-img {
+        order: 2
+      }
+
+      .p1-text {
+        order: 1;
+        padding: 0 64px 0 80px;
+        justify-content: center;
+        min-height: 100vh;
+        padding-top: 60px
+      }
+
+      .p1-hl {
+        font-size: clamp(52px, 5.5vw, 82px)
+      }
+
+      #p2 {
+        grid-template-rows: none;
+        grid-template-columns: 1fr 1fr
+      }
+
+      .p2-img {
+        order: 1
+      }
+
+      .p2-text {
+        order: 2;
+        padding: 0 64px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh
+      }
+
+      .p2-hl {
+        font-size: clamp(34px, 3.8vw, 62px)
+      }
+
+      #p3 {
+        grid-template-rows: none;
+        grid-template-columns: 1fr 1fr
+      }
+
+      .p3-img {
+        order: 2
+      }
+
+      .p3-text {
+        order: 1;
+        padding: 0 64px 0 80px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh
+      }
+
+      .p3-hl {
+        font-size: clamp(40px, 4.5vw, 66px)
+      }
+
+      #p4 {
+        grid-template-rows: none;
+        grid-template-columns: 1fr 1fr
+      }
+
+      .p4-img {
+        order: 1
+      }
+
+      .p4-text {
+        order: 2;
+        padding: 0 64px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh
+      }
+
+      .p4-hl {
+        font-size: clamp(36px, 4vw, 62px)
+      }
+
+      .p4-services {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .p5-over {
+        padding: 100px 80px 80px;
+        justify-content: center
+      }
+
+      .p5-blocks {
+        grid-template-columns: repeat(4, 1fr)
+      }
+
+      .p5-hl {
+        font-size: clamp(58px, 7vw, 94px)
+      }
+
+      #p6 {
+        grid-template-rows: none;
+        grid-template-columns: 1fr 1fr
+      }
+
+      .p6-img {
+        order: 2
+      }
+
+      .p6-text {
+        order: 1;
+        padding: 0 64px 0 80px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh
+      }
+
+      .p6-hl {
+        font-size: clamp(40px, 4.5vw, 66px)
+      }
+
+      #p7 {
+        grid-template-rows: none;
+        grid-template-columns: 1fr 1fr
+      }
+
+      .p7-img {
+        order: 1
+      }
+
+      .p7-text {
+        order: 2;
+        padding: 0 64px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh
+      }
+
+      .p7-hl {
+        font-size: clamp(40px, 4.5vw, 66px)
+      }
+
+      .p8-contacts {
+        flex-direction: row;
+        justify-content: center;
+        gap: 48px
+      }
+
+      .p8-hl {
+        font-size: clamp(68px, 9vw, 108px)
+      }
+    }
+
+    @media(min-width:1200px) {
+      .p1-hl {
+        font-size: 86px
+      }
+
+      .p2-hl {
+        font-size: 66px
+      }
+
+      .p3-hl,
+      .p6-hl,
+      .p7-hl {
+        font-size: 70px
+      }
+
+      .p4-hl {
+        font-size: 66px
+      }
+
+      .p5-hl {
+        font-size: 98px
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="pbar" id="pb"></div>
 
-<div class="pbar" id="pb"></div>
+  <nav>
+    <div class="nav-logo">SOLE SOLUTION</div>
+    <button class="nav-cta" onclick="document.getElementById('p8').scrollIntoView({behavior:'smooth'})">Daftar Sekarang
+      ›</button>
+  </nav>
 
-<nav>
-  <div class="nav-logo">SOLE SOLUTION</div>
-  <button class="nav-cta" onclick="document.getElementById('p6').scrollIntoView({behavior:'smooth'})">Schedule a Meeting ›</button>
-</nav>
+  <!-- P1 HERO -->
+  <section id="p1">
+    <div class="p1-img">
+      <div class="photo" style="height:100%">
+        <img src="photos/1.jpeg" alt="Workshop Sole Solution" loading="eager">
+        <div class="photo-lbl">Workshop · Sole Solution Est. 2017</div>
+      </div>
+    </div>
+    <div class="p1-text">
+      <div class="grid-bg"></div>
+      <div class="p1-est ai">Est. 2017 · 9 Tahun Pengalaman Industri</div>
+      <div class="tag ai">B2B Growth Partnership</div>
+      <h1 class="h1 p1-hl ai d1">NAIKKAN OMSET<br>LAUNDRY ANDA<br>TANPA MENAMBAH<br><em>TEKNISI.</em></h1>
+      <p class="p1-sub ai d2">Sole Solution membantu laundry sepatu menambah layanan reglue profesional tanpa investasi
+        teknisi, alat, maupun workshop tambahan.</p>
+      <div class="p1-pills ai d3">
+        <span class="pill">9 Tahun Pengalaman</span>
+        <span class="pill">3.000 Pasang/Bulan</span>
+        <span class="pill">Garansi Pengerjaan</span>
+      </div>
+      <button class="btn ai d4" onclick="document.getElementById('p8').scrollIntoView({behavior:'smooth'})">DAFTAR
+        SEKARANG ›</button>
+    </div>
+  </section>
 
-<div class="shint" id="sh">
-  <div class="sline"></div>
-  <div class="slbl">Scroll</div>
-</div>
-
-<!-- ═══ PAGE 1 — HERO ═══ -->
-<section id="p1">
-  <div class="p1-img">
-    <div class="photo" style="height:100%">
-      <img src="photos/WhatsApp%20Image%202026-06-22%20at%2015.19.09.jpeg" alt="Workshop reglue profesional" loading="eager">
-      <div class="photo-lbl">Workshop · Reglue Process</div>
+  <!-- P2 MASALAH -->
+  <section id="p2">
+    <div class="p2-img">
+      <div class="photo" style="height:100%">
+        <img src="photos/2.jpeg" alt="Sole copot" loading="lazy">
+        <div class="photo-lbl">The Problem · Lost Revenue</div>
+      </div>
     </div>
-  </div>
-  <div class="p1-text">
-    <div class="grid-bg"></div>
-    <div class="tag ai">B2B Reglue Partnership · 2025</div>
-    <h1 class="h1 p1-hl ai d1">
-      TAMBAH LAYANAN<br>REGLUE TANPA<br>MENAMBAH<br><em>TEKNISI DAN<br>WORKSHOP.</em>
-    </h1>
-    <p class="p1-sub ai d2">
-      Sole Solution membantu laundry sepatu menawarkan layanan reglue profesional dengan standar pabrik, garansi pengerjaan, dan kapasitas hingga 2.000 pasang per bulan.
-    </p>
-    <div class="p1-pills ai d3">
-      <span class="pill">Factory Standard Process</span>
-      <span class="pill">2.000 Pasang/Bulan</span>
-      <span class="pill">Garansi Pengerjaan</span>
-    </div>
-    <button class="btn ai d4" onclick="document.getElementById('p6').scrollIntoView({behavior:'smooth'})">SCHEDULE A MEETING ›</button>
-  </div>
-</section>
-
-<!-- ═══ PAGE 2 — MASALAH PASAR ═══ -->
-<section id="p2">
-  <div class="p2-img">
-    <div class="photo" style="height:100%">
-      <img src="photos/WhatsApp%20Image%202026-06-22%20at%2015.19.22.jpeg" alt="Sepatu dengan sol terbuka" loading="lazy">
-      <div class="photo-lbl">Common Case · Sole Separation</div>
-    </div>
-  </div>
-  <div class="p2-text">
-    <div class="grid-bg"></div>
-    <div class="tag ai">The Problem</div>
-    <h2 class="h1 p2-hl ai d1">
-      PELANGGAN SUDAH<br>MEMBUTUHKAN.<br>TAPI TIDAK SEMUA<br><em>LAUNDRY SIAP<br>MENANGANI.</em>
-    </h2>
-    <div class="p2-list ai d2">
-      <div class="p2-row">Tidak memiliki teknisi reglue yang berpengalaman</div>
-      <div class="p2-row">Tidak memiliki alat dan material khusus</div>
-      <div class="p2-row">Kehilangan peluang transaksi yang ada</div>
-      <div class="p2-row">Tidak dapat melayani kebutuhan pelanggan sepenuhnya</div>
-    </div>
-    <div class="p2-close ai d3">
-      <p>Sole Solution menangani seluruh proses reglue untuk partner laundry — agar Anda tidak perlu menolak satu permintaan pun.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PAGE 3 — SOLUSI ═══ -->
-<section id="p3">
-  <div class="p3-img">
-    <div class="photo" style="height:100%">
-      <img src="photos/WhatsApp%20Image%202026-06-22%20at%2015.19.35.jpeg" alt="Teknisi melakukan proses reglue" loading="lazy">
-      <div class="photo-lbl">Solution · Reglue Team</div>
-    </div>
-  </div>
-  <div class="p3-text">
-    <div class="grid-bg"></div>
-    <div class="tag ai">The Solution</div>
-    <h2 class="h1 p3-hl ai d1">
-      ANDA FOKUS<br>PADA LAUNDRY.<br><em>KAMI MENANGANI<br>REGLUE.</em>
-    </h2>
-    <div class="p3-items ai d2">
-      <div class="p3-item">
-        <div class="p3-dot"></div>
-        <div>
-          <div class="p3-t">Tidak Perlu Rekrut Teknisi Tambahan</div>
-          <div class="p3-d">Tim produksi kami siap menangani setiap order yang masuk dari bisnis Anda.</div>
+    <div class="p2-text">
+      <div class="grid-bg"></div>
+      <div class="tag ai">The Problem</div>
+      <h2 class="h1 p2-hl ai d1">BERAPA BANYAK<br>OMSET YANG<br>SUDAH ANDA<br><em>TOLAK?</em></h2>
+      <div class="p2-list ai d2">
+        <div class="p2-row">
+          <div>
+            <div class="p2-rt">Pelanggan datang dengan permintaan reglue</div>
+            <div class="p2-rd">Mereka sudah ada di depan Anda — tapi Anda belum bisa melayani.</div>
+          </div>
+        </div>
+        <div class="p2-row">
+          <div>
+            <div class="p2-rt">Permintaan ada, layanan belum tersedia</div>
+            <div class="p2-rd">Setiap hari ada order yang bisa masuk — tapi belum ada sistem untuk menanganinya.</div>
+          </div>
+        </div>
+        <div class="p2-row">
+          <div>
+            <div class="p2-rt">Layanan tidak ada, pelanggan pergi</div>
+            <div class="p2-rd">Yang pergi bukan hanya satu order — tapi potensi pelanggan setia yang hilang.</div>
+          </div>
+        </div>
+        <div class="p2-row">
+          <div>
+            <div class="p2-rt">Omset hilang, kompetitor yang mengambil</div>
+            <div class="p2-rd">Selama Anda belum siap, ada bisnis lain yang siap menerima order itu.</div>
+          </div>
         </div>
       </div>
-      <div class="p3-item">
-        <div class="p3-dot"></div>
-        <div>
-          <div class="p3-t">Tidak Perlu Investasi Alat & Fasilitas</div>
-          <div class="p3-d">Zero modal untuk peralatan khusus. Gunakan kapasitas dan alat kami.</div>
-        </div>
-      </div>
-      <div class="p3-item">
-        <div class="p3-dot"></div>
-        <div>
-          <div class="p3-t">Layanan Baru Tanpa Beban Operasional</div>
-          <div class="p3-d">Tambahkan reglue ke daftar layanan tanpa mengubah operasional harian Anda.</div>
-        </div>
-      </div>
-      <div class="p3-item">
-        <div class="p3-dot"></div>
-        <div>
-          <div class="p3-t">Partner Cukup Menerima & Menawarkan</div>
-          <div class="p3-d">Proses teknis sepenuhnya kami tangani — Anda hanya fokus pada pelanggan.</div>
-        </div>
+      <div class="p2-close ai d3">
+        <p>Setiap penolakan adalah uang yang tidak pernah masuk ke kas Anda — dan tidak ada yang datang kembali untuk
+          itu.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══ PAGE 4 — KUALITAS & KAPASITAS ═══ -->
-<section id="p4">
-  <div class="p4-bg">
-    <div class="photo" style="height:100%;min-height:100vh">
-      <img src="photos/WhatsApp%20Image%202026-06-22%20at%2015.19.51.jpeg" alt="QC sepatu, rak penyimpanan, workshop" loading="lazy">
-    </div>
-  </div>
-  <div class="p4-over">
-    <div class="tag ai" style="color:var(--gold)">Quality & Capacity</div>
-    <div class="p4-hl h1 ai d1">DIBANGUN UNTUK<br><em>KUALITAS DAN<br>SKALA.</em></div>
-    <div class="p4-blocks ai d2">
-      <div class="p4-block">
-        <div class="p4-num">2K+</div>
-        <div class="p4-bt">Kapasitas / Bulan</div>
-        <div class="p4-bd">Siap menangani volume besar secara konsisten.</div>
-      </div>
-      <div class="p4-block">
-        <div class="p4-num">QC</div>
-        <div class="p4-bt">Setiap Pasang</div>
-        <div class="p4-bd">Inspeksi wajib sebelum setiap order dikembalikan.</div>
-      </div>
-      <div class="p4-block">
-        <div class="p4-num">1M</div>
-        <div class="p4-bt">Garansi Pengerjaan</div>
-        <div class="p4-bd">Setiap pekerjaan bergaransi penuh selama 1 bulan.</div>
-      </div>
-      <div class="p4-block">
-        <div class="p4-num">SOP</div>
-        <div class="p4-bt">Standar Pabrik</div>
-        <div class="p4-bd">Sistem penyimpanan terorganisir dengan alur kerja tertulis.</div>
+  <!-- P3 SOLUSI -->
+  <section id="p3">
+    <div class="p3-img">
+      <div class="photo" style="height:100%">
+        <img src="photos/3.jpeg" alt="Teknisi reglue" loading="lazy">
+        <div class="photo-lbl">Solution · Zero Operational Cost</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ═══ PAGE 5 — ALUR KERJA SAMA ═══ -->
-<section id="p5">
-  <div class="p5-img">
-    <div class="photo" style="height:100%">
-      <img src="photos/WhatsApp%20Image%202026-06-22%20at%2015.20.12.jpeg" alt="Packing, pengiriman, serah terima" loading="lazy">
-      <div class="photo-lbl">Process · Handover</div>
-    </div>
-  </div>
-  <div class="p5-text">
-    <div class="grid-bg"></div>
-    <div class="tag ai">How It Works</div>
-    <h2 class="h1 p5-hl ai d1">
-      PROSES SEDERHANA.<br><em>HASIL<br>PROFESIONAL.</em>
-    </h2>
-    <div class="flow-list ai d2">
-      <div class="fl-item">
-        <div class="fl-n">01</div>
-        <div class="fl-body">
-          <div class="fl-t">Kirim Data Partner</div>
-          <div class="fl-d">Hubungi kami dan sampaikan kebutuhan bisnis Anda.</div>
+    <div class="p3-text">
+      <div class="grid-bg"></div>
+      <div class="tag ai">The Solution</div>
+      <h2 class="h1 p3-hl ai d1">OMSET BARU.<br><em>OPERASIONAL<br>TETAP.</em></h2>
+      <div class="p3-items ai d2">
+        <div class="p3-item">
+          <div class="p3-dot"></div>
+          <div>
+            <div class="p3-t">Tidak Perlu Rekrut Teknisi</div>
+            <div class="p3-d">Tim produksi kami menangani semua order reglue yang masuk dari bisnis Anda.</div>
+          </div>
         </div>
-      </div>
-      <div class="fl-item">
-        <div class="fl-n">02</div>
-        <div class="fl-body">
-          <div class="fl-t">Zoom Meeting</div>
-          <div class="fl-d">Diskusi singkat 30–45 menit — proses, harga, dan alur kerja sama.</div>
+        <div class="p3-item">
+          <div class="p3-dot"></div>
+          <div>
+            <div class="p3-t">Tidak Perlu Beli Alat atau Bahan</div>
+            <div class="p3-d">Seluruh peralatan, bahan, dan fasilitas workshop sudah tersedia di pihak kami.</div>
+          </div>
         </div>
-      </div>
-      <div class="fl-item">
-        <div class="fl-n">03</div>
-        <div class="fl-body">
-          <div class="fl-t">Kirim Sepatu</div>
-          <div class="fl-d">Partner mengirim order reglue ke workshop kami.</div>
+        <div class="p3-item">
+          <div class="p3-dot"></div>
+          <div>
+            <div class="p3-t">Tidak Perlu Workshop Tambahan</div>
+            <div class="p3-d">Tidak ada investasi ruang, tidak ada setup baru — Anda mulai dari yang sudah ada.</div>
+          </div>
         </div>
-      </div>
-      <div class="fl-item">
-        <div class="fl-n">04</div>
-        <div class="fl-body">
-          <div class="fl-t">Pengerjaan & QC</div>
-          <div class="fl-d">Dikerjakan dengan standar pabrik, dicek sebelum selesai.</div>
-        </div>
-      </div>
-      <div class="fl-item">
-        <div class="fl-n">05</div>
-        <div class="fl-body">
-          <div class="fl-t">Pengiriman Kembali</div>
-          <div class="fl-d">Sepatu dikirim kembali ke partner siap diserahkan ke pelanggan.</div>
+        <div class="p3-item">
+          <div class="p3-dot"></div>
+          <div>
+            <div class="p3-t">Kami Tangani Produksi, Anda Fokus Jualan</div>
+            <div class="p3-d">Terima order, kirim ke kami — selesai. Anda hanya perlu fokus pada pelanggan Anda.</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══ PAGE 6 — CLOSING CTA ═══ -->
-<section id="p6">
-  <div class="p6-bg">
-    <div class="photo" style="height:100%">
-      <img src="photos/WhatsApp%20Image%202026-06-22%20at%2015.20.18.jpeg" alt="Professional partnership" loading="lazy">
-    </div>
-  </div>
-  <div class="p6-over">
-    <div class="p6-ol ai">Ready to grow your business?</div>
-    <div class="p6-hl ai d1">GROWTH IS<br>A MUST.<br><em>LET'S GROW<br>TOGETHER.</em></div>
-    <p class="p6-sub ai d2">
-      Sole Solution membantu partner laundry menambah layanan reglue profesional tanpa investasi teknisi, alat, maupun workshop tambahan.
-    </p>
-    <button class="btn btn-lg ai d3">SCHEDULE A MEETING ›</button>
-    <div class="p6-contacts ai d4">
-      <div class="p6-ci">
-        <div class="lbl">Email</div>
-        <div class="val">solesolution.partner@gmail.com</div>
-      </div>
-      <div class="p6-ci">
-        <div class="lbl">WhatsApp</div>
-        <div class="val">Coming Soon</div>
+  <!-- P4 GROWTH -->
+  <section id="p4">
+    <div class="p4-img">
+      <div class="photo" style="height:100%">
+        <img src="photos/4.jpeg" alt="Growth omset" loading="lazy">
+        <div class="photo-lbl">Growth · Transaction Value</div>
       </div>
     </div>
-    <div class="p6-foot ai d5">
-      Sole Solution bekerja dengan bisnis yang memahami bahwa reputasi<br>dan konsistensi adalah fondasi pertumbuhan jangka panjang.
+    <div class="p4-text">
+      <div class="tag ai" style="color:var(--gold)">Revenue Potential</div>
+      <h2 class="p4-hl h1 ai d1">
+        <small>Bayangkan jika</small>
+        SETIAP PELANGGAN<br>YANG DATANG
+        <small>bisa membeli</small>
+        <em>LEBIH DARI SATU<br>LAYANAN.</em>
+      </h2>
+      <div class="p4-services ai d2">
+        <div class="p4-svc">
+          <div class="p4-svc-dot"></div>
+          <div class="p4-svc-n">Laundry</div>
+        </div>
+        <div class="p4-svc">
+          <div class="p4-svc-dot"></div>
+          <div class="p4-svc-n">Deep Clean</div>
+        </div>
+        <div class="p4-svc">
+          <div class="p4-svc-dot"></div>
+          <div class="p4-svc-n">Repaint</div>
+        </div>
+        <div class="p4-svc">
+          <div class="p4-svc-dot"></div>
+          <div class="p4-svc-n">Reglue</div>
+        </div>
+      </div>
+      <p class="p4-sub ai d3">Semakin banyak layanan yang bisa Anda tawarkan, semakin besar nilai transaksi yang bisa
+        tercipta dari setiap pelanggan yang datang.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<script>
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}}),{threshold:.07});
-document.querySelectorAll('.ai').forEach(el=>obs.observe(el));
-window.addEventListener('scroll',()=>{
-  const d=document.documentElement;
-  document.getElementById('pb').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';
-  if(d.scrollTop>80)document.getElementById('sh').classList.add('gone');
-},{passive:true});
-</script>
+  <!-- P5 TRUST -->
+  <section id="p5">
+    <div class="p5-bg">
+      <div class="photo" style="height:100%;min-height:100vh">
+        <img src="photos/5.jpeg" alt="Workshop QC rak" loading="lazy">
+      </div>
+    </div>
+    <div class="p5-over">
+      <div class="tag ai" style="color:var(--gold)">Track Record</div>
+      <div class="p5-hl h1 ai d1">9 TAHUN.<br>RIBUAN PASANG.<br><em>SATU TUJUAN:</em></div>
+      <div class="p5-mid ai d2">Membantu Partner Meningkatkan Omset</div>
+      <div class="p5-blocks ai d3">
+        <div class="p5-block">
+          <div class="p5-num">2017</div>
+          <div class="p5-bt">Est.</div>
+          <div class="p5-bd">9 tahun di industri reglue — bukan pemain baru.</div>
+        </div>
+        <div class="p5-block">
+          <div class="p5-num">3K+</div>
+          <div class="p5-bt">Pasang / Bulan</div>
+          <div class="p5-bd">Kapasitas produksi yang siap tumbuh bersama bisnis Anda.</div>
+        </div>
+        <div class="p5-block">
+          <div class="p5-num">QC</div>
+          <div class="p5-bt">Setiap Pasang</div>
+          <div class="p5-bd">Inspeksi wajib sebelum setiap order dikembalikan ke partner.</div>
+        </div>
+        <div class="p5-block">
+          <div class="p5-num">✓</div>
+          <div class="p5-bt">Garansi Pengerjaan</div>
+          <div class="p5-bd">Garansi penuh — kepercayaan yang bisa Anda jual ke pelanggan.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- P6 WORKFLOW -->
+  <section id="p6">
+    <div class="p6-img">
+      <div class="photo" style="height:100%">
+        <img src="photos/6.jpeg" alt="Proses workflow" loading="lazy">
+        <div class="photo-lbl">Process · Simple Workflow</div>
+      </div>
+    </div>
+    <div class="p6-text">
+      <div class="grid-bg"></div>
+      <div class="tag ai">How It Works</div>
+      <h2 class="h1 p6-hl ai d1">PROSES SEDERHANA.<br><em>HASIL PROFESIONAL.</em></h2>
+      <div class="flow-list ai d2">
+        <div class="fl-item">
+          <div class="fl-n">01</div>
+          <div class="fl-body">
+            <div class="fl-t">Kirim Data Partner</div>
+            <div class="fl-d">Isi form dan sampaikan profil bisnis laundry Anda kepada kami.</div>
+          </div>
+        </div>
+        <div class="fl-item">
+          <div class="fl-n">02</div>
+          <div class="fl-body">
+            <div class="fl-t">Zoom Meeting</div>
+            <div class="fl-d">Diskusi 30–45 menit — alur kerja sama, sistem harga, dan ekspektasi bersama.</div>
+          </div>
+        </div>
+        <div class="fl-item">
+          <div class="fl-n">03</div>
+          <div class="fl-body">
+            <div class="fl-t">Kirim Sepatu</div>
+            <div class="fl-d">Partner mengirimkan order reglue pertama ke workshop kami.</div>
+          </div>
+        </div>
+        <div class="fl-item">
+          <div class="fl-n">04</div>
+          <div class="fl-body">
+            <div class="fl-t">Pengerjaan & QC</div>
+            <div class="fl-d">Proses produksi standar profesional, dicek menyeluruh sebelum dinyatakan selesai.</div>
+          </div>
+        </div>
+        <div class="fl-item">
+          <div class="fl-n">05</div>
+          <div class="fl-body">
+            <div class="fl-t">Pengiriman Kembali</div>
+            <div class="fl-d">Sepatu dikirim balik ke Anda — siap diserahkan ke pelanggan dengan nama bisnis Anda.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- P7 MISI -->
+  <section id="p7">
+    <div class="p7-img">
+      <div class="photo" style="height:100%">
+        <img src="photos/7.jpeg" alt="Business partnership" loading="lazy">
+        <div class="photo-lbl">Mission · Grow Together</div>
+      </div>
+    </div>
+    <div class="p7-text">
+      <div class="tag ai" style="color:var(--gold)">Misi Kami</div>
+      <h2 class="h1 p7-hl ai d1">MEMBANTU<br>VENDOR<br><em>BERTUMBUH.</em></h2>
+      <div class="p7-body ai d2">
+        <p class="p7-para">Kami tidak mencari sebanyak mungkin partner.</p>
+        <p class="p7-para">Kami mencari partner yang memiliki visi yang sama:</p>
+        <div class="p7-callout">
+          <p>MENINGKATKAN OMSET.</p>
+        </div>
+        <p class="p7-para">Karena pertumbuhan yang sehat tidak dibangun dari banyaknya partner.</p>
+        <p class="p7-para">Tetapi dari kualitas partner yang bertumbuh bersama.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- P8 CLOSING SCARCITY -->
+  <section id="p8">
+    <div class="p8-bg">
+      <div class="photo" style="height:100%">
+        <img src="photos/8.jpeg" alt="Professional partnership" loading="lazy">
+      </div>
+    </div>
+    <div class="p8-over">
+      <div class="p8-ol ai">Dalam 6 Bulan ke Depan</div>
+      <div class="p8-intro ai">Anda tetap punya dua pilihan.</div>
+      <div class="p8-hl ai d1">BERTUMBUH.</div>
+      <div class="p8-or ai d2">ATAU</div>
+      <div class="p8-hl ai d2">MELIHAT<br>KOMPETITOR<br><em>TUMBUH<br>LEBIH DULU.</em></div>
+      <div class="p8-datebox ai d3">
+        <div class="p8-dlbl">Jadwal Zoom Terbuka</div>
+        <div class="p8-date">5 JULI 2026</div>
+        <div class="p8-dsub">Sesi diskusi batch ini dibuka terbatas. Setelah kuota terpenuhi, pembukaan partner baru
+          akan dievaluasi kembali.</div>
+      </div>
+      <p class="p8-sub ai d4">Slot terbatas. Kami hanya berdiskusi dengan partner yang benar-benar siap bertumbuh.</p>
+      <button class="btn btn-xl ai d4" onclick="window.open('mailto:solesolution.partner@gmail.com','_blank')">DAFTAR
+        SEKARANG ›</button>
+      <div class="p8-contacts ai d5">
+        <div class="p8-ci">
+          <div class="lbl">Email</div>
+          <div class="val">solesolution.partner@gmail.com</div>
+        </div>
+        <div class="p8-ci">
+          <div class="lbl">WhatsApp</div>
+          <div class="val">Coming Soon</div>
+        </div>
+      </div>
+      <div class="p8-foot ai">Sole Solution · Est. 2017 · 9 Tahun Pengalaman Industri Reglue Profesional<br>Pilihan ada
+        di tangan Anda. Kami hanya membuka pintu bagi yang siap masuk.</div>
+    </div>
+  </section>
+
+  <script>
+    const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('v'); obs.unobserve(x.target) } }), { threshold: .07 });
+    document.querySelectorAll('.ai').forEach(el => obs.observe(el));
+    window.addEventListener('scroll', () => {
+      const d = document.documentElement;
+      document.getElementById('pb').style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%';
+    }, { passive: true });
+  </script>
 </body>
+
 </html>
